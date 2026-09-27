@@ -1,0 +1,195 @@
+{
+  "generatedAt": "2026-09-27T10:47:39.595Z",
+  "mode": "local (viewer/models/)",
+  "localModels": true,
+  "default": "htjd",
+  "maps": [
+    {
+      "slug": "htjd",
+      "label": "航天基地",
+      "regionCount": 135,
+      "triangles": 3151342,
+      "bytes": 221746560,
+      "bounds": {
+        "min": [
+          -694.895386,
+          -59.478516,
+          -694.895508
+        ],
+        "max": [
+          694.895508,
+          224.414734,
+          746.167664
+        ],
+        "center": [
+          0.000061,
+          82.468109,
+          25.636078
+        ],
+        "radius": 1011.036247
+      },
+      "hasFull": true,
+      "hasOverview": true,
+      "presentNow": {
+        "full": false,
+        "overview": true
+      }
+    },
+    {
+      "slug": "db",
+      "label": "零号大坝",
+      "regionCount": 237,
+      "triangles": 5297685,
+      "bytes": 339985124,
+      "bounds": {
+        "min": [
+          -1001.1679312442134,
+          -331.39812560921473,
+          -839.8951112532718
+        ],
+        "max": [
+          1064.2990350917953,
+          266.1250564329174,
+          1225.5370258770854
+        ],
+        "center": [
+          31.565551923790963,
+          -32.63653458814866,
+          192.8209573119068
+        ],
+        "radius": 1490.7378756167955
+      },
+      "hasFull": true,
+      "hasOverview": false,
+      "presentNow": {
+        "full": false,
+        "overview": false
+      }
+    },
+    {
+      "slug": "cgxg",
+      "label": "长弓溪谷",
+      "regionCount": 433,
+      "triangles": 6838296,
+      "bytes": 466085568,
+      "bounds": {
+        "min": [
+          -2013.12984375,
+          -61.7092919921875,
+          -1002.637265625
+        ],
+        "max": [
+          464.7890625,
+          165.05992187500001,
+          1233.420234375
+        ],
+        "center": [
+          -774.170390625,
+          51.675314941406256,
+          115.391484375
+        ],
+        "radius": 1672.6819426907937
+      },
+      "hasFull": true,
+      "hasOverview": false,
+      "presentNow": {
+        "full": false,
+        "overview": false
+      }
+    },
+    {
+      "slug": "bks",
+      "label": "巴克什",
+      "regionCount": 132,
+      "triangles": 3993804,
+      "bytes": 302888744,
+      "bounds": {
+        "min": [
+          -874.357666,
+          -1122.965088,
+          -842.733887
+        ],
+        "max": [
+          988.967468,
+          512.28125,
+          640
+        ],
+        "center": [
+          57.304901,
+          -305.341919,
+          -101.366943
+        ],
+        "radius": 1444.343356
+      },
+      "hasFull": true,
+      "hasOverview": false,
+      "presentNow": {
+        "full": false,
+        "overview": false
+      }
+    },
+    {
+      "slug": "cxjy",
+      "label": "潮汐监狱",
+      "regionCount": 177,
+      "triangles": 6595170,
+      "bytes": 368614540,
+      "bounds": {
+        "min": [
+          -410.827515,
+          -143.555344,
+          -411.279694
+        ],
+        "max": [
+          454.727295,
+          110.692291,
+          424.411377
+        ],
+        "center": [
+          21.94989,
+          -16.431526,
+          6.565842
+        ],
+        "radius": 614.85904
+      },
+      "hasFull": true,
+      "hasOverview": false,
+      "presentNow": {
+        "full": false,
+        "overview": false
+      }
+    },
+    {
+      "slug": "az3",
+      "label": "核电站",
+      "regionCount": 311,
+      "triangles": 7306228,
+      "bytes": 477380064,
+      "bounds": {
+        "min": [
+          -843.724304,
+          -77.792847,
+          -885.436279
+        ],
+        "max": [
+          899.055733,
+          204.807607,
+          904.725693
+        ],
+        "center": [
+          27.665714,
+          63.50738,
+          9.644707
+        ],
+        "radius": 1257.161998
+      },
+      "hasFull": true,
+      "hasOverview": false,
+      "presentNow": {
+        "full": false,
+        "overview": false
+      }
+    }
+  ],
+  "availableCount": 6
+}

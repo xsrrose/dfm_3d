@@ -131,20 +131,99 @@ glTF 查看器让 GPU 自由选 mip，缺各向异性过滤时会在斜视地面
 
 ---
 
-## 四、如何使用
+## 四、下载模型
 
-`.glb` 可直接拖入 **Blender / Unreal / Unity / 3D Viewer** 打开，
+模型体积超过 GitHub 单文件 100 MB 限制，因此放在 **Release** 里（每个都能单独下载）：
+
+**➡️ [Releases · models-v1](https://github.com/xsrrose/dfm_3d/releases/tag/models-v1)**
+
+| 地图 | 文件 | 三角面 | 大小 | 直链 |
+|---|---|---:|---:|---|
+| 核电站 | `az3-full.glb` | 7,306,228 | 455.3 MB | [下载](https://github.com/xsrrose/dfm_3d/releases/download/models-v1/az3-full.glb) |
+| 长弓溪谷 | `cgxg-full.glb` | 6,838,296 | 444.5 MB | [下载](https://github.com/xsrrose/dfm_3d/releases/download/models-v1/cgxg-full.glb) |
+| 潮汐监狱 | `cxjy-full.glb` | 6,595,170 | 351.5 MB | [下载](https://github.com/xsrrose/dfm_3d/releases/download/models-v1/cxjy-full.glb) |
+| 零号大坝 | `db-full.glb` | 5,297,685 | 324.2 MB | [下载](https://github.com/xsrrose/dfm_3d/releases/download/models-v1/db-full.glb) |
+| 巴克什 | `bks-full.glb` | 3,993,804 | 288.9 MB | [下载](https://github.com/xsrrose/dfm_3d/releases/download/models-v1/bks-full.glb) |
+| 航天基地 | `htjd-full.glb` | 3,151,342 | 211.5 MB | [下载](https://github.com/xsrrose/dfm_3d/releases/download/models-v1/htjd-full.glb) |
+| 航天基地（概览） | `htjd-overview.glb` | 271,893 | 25.4 MB | [下载](https://github.com/xsrrose/dfm_3d/releases/download/models-v1/htjd-overview.glb) |
+
+或一次性全部拉到本地：
+
+```bash
+node tools/fetch-models.mjs
+```
+
+### 打开方式
+
+`.glb` 可直接拖入 **Blender / Unreal / Unity / Windows 3D 查看器**，
 贴图已内嵌，无需任何外部文件。
 
-体积较大（最大 455 MB），建议：
-
 - Blender：`File → Import → glTF 2.0`
-- 查看器：`python lib/serve-viewer.py 8899` → `http://127.0.0.1:8899/viewer/index.html`
-  （本仓库配套的查看器支持环绕/飞行/俯视相机、对象逐项显隐、线框、环境调节、实时统计）
+- Unreal：`Import` → 选 `.glb`
+- 命令行预览：`npx @gltf-transform/cli inspect <file>.glb`
 
 ---
 
-## 五、验证结论
+## 五、本地端查看器
+
+仓库自带一个零依赖的浏览器查看器（three.js 已本地化，不需要联网装包）。
+
+```bash
+# 1) 先把模型拉到本地（只需一次，约 2.1 GB）
+node tools/fetch-models.mjs
+
+# 2) 启动服务（必须走 HTTP，file:// 打不开 ES module）
+python tools/serve-viewer.py 8899
+
+# 3) 浏览器打开
+#    http://127.0.0.1:8899/viewer/index.html
+```
+
+> **为什么必须先下载？** GitHub Release 资源不返回
+> `Access-Control-Allow-Origin` 头，浏览器**无法跨域直连**。
+> `tools/fetch-models.mjs` 走 Node（不受 CORS 限制），下载后由本地服务提供，
+> 这样也顺带获得了离线能力与更快的加载速度。
+
+### 两种模式
+
+```bash
+node tools/make-viewer-manifest.mjs            # 本地模式（默认，走 viewer/models/）
+node tools/make-viewer-manifest.mjs --remote   # 在线模式（直链 Release，浏览器会被 CORS 拦）
+```
+
+### 功能
+
+| 功能 | 说明 |
+|---|---|
+| 相机 | 环绕 / 飞行（`WASD` + 鼠标）/ 俯视 |
+| 地图切换 | 6 张地图，全图 / 概览 |
+| 对象显隐 | 逐个子网格开关（最多 2455 个） |
+| 显示 | 线框、坐标轴、地面网格、地图边界盒、Y-up 旋转 |
+| 环境 | 4 套预设（晴空/黄昏/阴天/夜间）+ 曝光、环境光、雾、点光 |
+| 纹理 | 平滑 / 源站一致 / 锐利（各向异性 16×，治斜视模糊与闪烁） |
+| 统计 | 实时三角面、对象数、显存估算、FPS |
+| 深链 | `?map=az3&variant=full` 直接定位 |
+
+### 目录结构
+
+```
+.
+├─ README.md
+├─ models.json                  模型清单（机读，含全部统计）
+├─ viewer/
+│  ├─ index.html  app.js  style.css
+│  ├─ maps.json                 模型地址表（本地/在线两种模式）
+│  ├─ models/                   模型放这里（运行 fetch-models.mjs 后出现）
+│  └─ vendor/                   three.js r169 + GLTFLoader + OrbitControls + meshopt
+└─ tools/
+   ├─ serve-viewer.py           本地静态服务
+   ├─ fetch-models.mjs          从 Release 批量下载模型
+   └─ make-viewer-manifest.mjs  生成 maps.json
+```
+
+---
+
+## 六、验证结论
 
 | 检查项 | 结果 |
 |---|---|
@@ -157,7 +236,8 @@ glTF 查看器让 GPU 自由选 mip，缺各向异性过滤时会在斜视地面
 
 ---
 
-## 六、免责声明
+## 七、免责声明
 
 模型版权归**腾讯《三角洲行动》**所有。本仓库内容仅供**技术学习与研究**
 使用，请勿用于任何商业用途。请以官方内容为准。
+

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>HM 雷达 3D 模型查看器</title>
+<link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div id="stage"></div>
+
+<div id="loading" class="loading">
+  <div class="loading-card">
+    <div class="spinner"></div>
+    <strong id="loading-title">正在初始化</strong>
+    <p id="loading-detail">准备 3D 渲染器…</p>
+    <div class="bar"><i id="loading-bar"></i></div>
+    <button id="loading-retry" hidden>重新加载</button>
+  </div>
+</div>
+
+<header class="topbar">
+  <div class="brand">
+    <h1 id="map-title">HM 雷达 3D</h1>
+    <p id="map-sub">本地模型查看器</p>
+  </div>
+
+  <div class="toolbar">
+    <label class="field">地图
+      <select id="map-select"></select>
+    </label>
+    <label class="field">模型
+      <select id="variant-select">
+        <option value="full">全图</option>
+        <option value="overview">概览</option>
+      </select>
+    </label>
+    <div class="seg" role="group" aria-label="相机模式">
+      <button data-cam="orbit" class="on">环绕</button>
+      <button data-cam="fly">飞行</button>
+      <button data-cam="top">俯视</button>
+    </div>
+    <button id="btn-reset" class="icon" title="重置镜头">↺</button>
+    <button id="btn-wire" class="icon" title="线框">◇</button>
+    <button id="btn-sky" class="icon" title="背景">◐</button>
+    <button id="btn-fold" class="icon" title="面板">≡</button>
+  </div>
+
+  <div class="stats" id="stats">
+    <span><b id="m-fps">--</b> FPS</span>
+    <span><b id="m-tri">0</b> 三角面</span>
+    <span><b id="m-obj">0</b> 对象</span>
+    <span><b id="m-mem">0</b> MB</span>
+  </div>
+</header>
+
+<aside class="panel" id="panel">
+  <section>
+    <h2>定位</h2>
+    <label class="row"><input type="checkbox" id="chk-grid" /> 地面网格</label>
+    <label class="row"><input type="checkbox" id="chk-axes" checked /> 坐标轴</label>
+    <label class="row"><input type="checkbox" id="chk-bounds" /> 地图边界盒</label>
+    <label class="row"><input type="checkbox" id="chk-lights" checked /> 场景灯光</label>
+    <label class="row"><input type="checkbox" id="chk-flip" /> Y-up 旋转</label>
+  </section>
+
+  <section>
+    <h2>视角</h2>
+    <div class="btns">
+      <button data-view="bounds">全图</button>
+      <button data-view="origin">原点</button>
+      <button data-view="xz">俯视</button>
+      <button data-view="xy">侧视</button>
+      <button data-view="iso">等轴</button>
+    </div>
+  </section>
+
+  <section id="objects">
+    <h2>对象 <small id="obj-count"></small></h2>
+    <div class="obj-list" id="obj-list"></div>
+  </section>
+
+  <section>
+    <h2>环境</h2>
+    <label class="row">纹理
+      <select id="tex-mode">
+        <option value="smooth" selected>平滑（推荐）</option>
+        <option value="source">源站一致</option>
+        <option value="sharp">锐利</option>
+      </select>
+    </label>
+    <label class="row">曝光 <input type="range" id="r-exposure" min="0.2" max="3" step="0.05" value="1.05" /></label>
+    <label class="row">环境光 <input type="range" id="r-env" min="0" max="3" step="0.05" value="1" /></label>
+    <label class="row">雾浓度 <input type="range" id="r-fog" min="0" max="2" step="0.05" value="0" /></label>
+    <label class="row">点光强度 <input type="range" id="r-light" min="0" max="3" step="0.05" value="1" /></label>
+  </section>
+
+  <section>
+    <h2>信息</h2>
+    <dl class="meta" id="meta"></dl>
+  </section>
+</aside>
+
+<div id="hint" class="hint">左键拖动旋转 · 右键平移 · 滚轮缩放</div>
+<div id="toast" class="toast"></div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three.module.js"
+  }
+}
+</script>
+<script type="module" src="./app.js"></script>
+</body>
+</html>
