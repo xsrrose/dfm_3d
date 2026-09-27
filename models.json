@@ -1,0 +1,233 @@
+{
+  "generatedAt": "2026-09-27T10:31:23.500Z",
+  "source": "HM雷达 3D建模 (/static/model3d/index.html)",
+  "format": "glTF 2.0 binary (.glb), textures embedded",
+  "coordinateSpace": "reference world metres, all transforms baked, Y-up",
+  "note": "长弓溪谷 cgxg 已按源坐标策略烘焙 Z 轴镜像",
+  "models": [
+    {
+      "file": "az3-full/az3-full.glb",
+      "slug": "az3",
+      "label": "核电站",
+      "variant": "full",
+      "quality": "mobile",
+      "triangles": 7306228,
+      "vertices": 10602470,
+      "regionPacks": 311,
+      "primitives": 1687,
+      "materials": 27,
+      "embeddedImages": 61,
+      "bytes": 477380064,
+      "bounds": {
+        "min": [
+          -843.724304,
+          -77.792847,
+          -885.436279
+        ],
+        "max": [
+          899.055733,
+          204.807607,
+          904.725693
+        ],
+        "center": [
+          27.665714,
+          63.50738,
+          9.644707
+        ],
+        "radius": 1257.161998
+      }
+    },
+    {
+      "file": "bks-full/bks-full.glb",
+      "slug": "bks",
+      "label": "巴克什",
+      "variant": "full",
+      "quality": "mobile",
+      "triangles": 3993804,
+      "vertices": 6344683,
+      "regionPacks": 132,
+      "primitives": 1041,
+      "materials": 25,
+      "embeddedImages": 42,
+      "bytes": 302888744,
+      "bounds": {
+        "min": [
+          -874.357666,
+          -1122.965088,
+          -842.733887
+        ],
+        "max": [
+          988.967468,
+          512.28125,
+          640
+        ],
+        "center": [
+          57.304901,
+          -305.341919,
+          -101.366943
+        ],
+        "radius": 1444.343356
+      }
+    },
+    {
+      "file": "cgxg-full/cgxg-full.glb",
+      "slug": "cgxg",
+      "label": "长弓溪谷",
+      "variant": "full",
+      "quality": "mobile",
+      "triangles": 6838296,
+      "vertices": 9861489,
+      "regionPacks": 433,
+      "primitives": 2455,
+      "materials": 44,
+      "embeddedImages": 68,
+      "bytes": 466085568,
+      "bounds": {
+        "min": [
+          -2013.12984375,
+          -61.7092919921875,
+          -1002.637265625
+        ],
+        "max": [
+          464.7890625,
+          165.05992187500001,
+          1233.420234375
+        ],
+        "center": [
+          -774.170390625,
+          51.675314941406256,
+          115.391484375
+        ],
+        "radius": 1672.6819426907937
+      }
+    },
+    {
+      "file": "cxjy-full/cxjy-full.glb",
+      "slug": "cxjy",
+      "label": "潮汐监狱",
+      "variant": "full",
+      "quality": "mobile",
+      "triangles": 6595170,
+      "vertices": 7316026,
+      "regionPacks": 177,
+      "primitives": 902,
+      "materials": 24,
+      "embeddedImages": 37,
+      "bytes": 368614540,
+      "bounds": {
+        "min": [
+          -410.827515,
+          -143.555344,
+          -411.279694
+        ],
+        "max": [
+          454.727295,
+          110.692291,
+          424.411377
+        ],
+        "center": [
+          21.94989,
+          -16.431526,
+          6.565842
+        ],
+        "radius": 614.85904
+      }
+    },
+    {
+      "file": "db-full/db-full.glb",
+      "slug": "db",
+      "label": "零号大坝",
+      "variant": "full",
+      "quality": "mobile",
+      "triangles": 5297685,
+      "vertices": 7417118,
+      "regionPacks": 237,
+      "primitives": 997,
+      "materials": 25,
+      "embeddedImages": 34,
+      "bytes": 339985124,
+      "bounds": {
+        "min": [
+          -1001.1679312442134,
+          -331.39812560921473,
+          -839.8951112532718
+        ],
+        "max": [
+          1064.2990350917953,
+          266.1250564329174,
+          1225.5370258770854
+        ],
+        "center": [
+          31.565551923790963,
+          -32.63653458814866,
+          192.8209573119068
+        ],
+        "radius": 1490.7378756167955
+      }
+    },
+    {
+      "file": "htjd-full/htjd-full.glb",
+      "slug": "htjd",
+      "label": "航天基地",
+      "variant": "full",
+      "quality": "mobile",
+      "triangles": 3151342,
+      "vertices": 4873972,
+      "regionPacks": 135,
+      "primitives": 650,
+      "materials": 23,
+      "embeddedImages": 40,
+      "bytes": 221746560,
+      "bounds": {
+        "min": [
+          -694.895386,
+          -59.478516,
+          -694.895508
+        ],
+        "max": [
+          694.895508,
+          224.414734,
+          746.167664
+        ],
+        "center": [
+          0.000061,
+          82.468109,
+          25.636078
+        ],
+        "radius": 1011.036247
+      }
+    },
+    {
+      "file": "htjd-overview/htjd-overview.glb",
+      "slug": "htjd",
+      "label": "航天基地",
+      "variant": "overview",
+      "quality": "mobile",
+      "triangles": 271893,
+      "vertices": 476397,
+      "regionPacks": 1,
+      "primitives": 15,
+      "materials": 15,
+      "embeddedImages": 25,
+      "bytes": 26673920,
+      "bounds": {
+        "min": [
+          -694.895386,
+          -59.478516,
+          -694.895508
+        ],
+        "max": [
+          694.895508,
+          224.414734,
+          746.167664
+        ],
+        "center": [
+          0.000061,
+          82.468109,
+          25.636078
+        ],
+        "radius": 1011.036247
+      }
+    }
+  ]
+}
